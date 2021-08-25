@@ -1,0 +1,502 @@
+:root {
+  /* THEME HEXCODES */
+  --primary-color: #f27a1a;
+  --account-link-color: #333;
+  --account-link-hover-color: var(--primary-color);
+  --paragraph-font: "Source Sans Pro", sans-serif;
+  /* Z-INDEX VALUES */
+  --z-modal: 1000;
+  --z-dropdown: 100;
+  --z-fav-btn: 10;
+  /* CONSTANT FIELD VALUES */
+  --input-height: 20px;
+  --input-width: 20px;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h4 {
+  padding: 0;
+  margin: 0;
+}
+
+#black-out {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  margin-top: 35px;
+  display: none;
+  height: 100%;
+  background-color: #222;
+  opacity: 0.3;
+  z-index: -999;
+}
+
+.top-banner {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.top-banner > img {
+  width: inherit;
+  height: 96px;
+}
+
+.container {
+  margin: 0 auto;
+}
+main {
+  border-top: 1px solid #e8e8e8;
+  width: 100%;
+  margin: 0;
+  opacity: 1;
+}
+.page-content {
+  width: 1080px;
+  margin: 0 auto;
+}
+header {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.header-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+}
+.header-links a {
+  color: #999999;
+  font-size: 12px;
+}
+.header-links a:hover {
+  color: #666666;
+}
+
+.logo-search-account-container {
+  display: grid;
+  grid-template-columns: 140px 1fr 335px;
+  margin-top: 10px;
+}
+
+.search {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 41px;
+  background-color: #f3f3f3;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid transparent;
+  position: relative;
+}
+.search input[type="search"]:focus ~ .search-autocomplete {
+  display: block;
+  border: 1px solid var(--primary-color);
+}
+
+.search:focus-within { 
+  border: 1px solid var(--primary-color);
+}
+
+.search input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 12px;
+}
+.search button {
+  background: none;
+  border: none;
+}
+
+/* Search Auto Complete START*/
+.search-autocomplete {
+  display: none;
+  position: absolute;
+  background: #ffffff;
+  width: 600px;
+  height: 167px;
+  top: 37px;
+  left: -1px;
+  border: 1px solid var(--primary-color);
+  border-radius: 0px 0px 6px 6px;
+  padding: 17px 17px 18px 18px;
+  z-index: var(--z-dropdown);
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  align-items: center;
+}
+.result-title .title-main {
+  color: var(--primary-color);
+  font-size: 12px;
+  line-height: 15px;
+}
+.result-title .clear {
+  color: var(--account-link-color);
+  font-size: 12px;
+  line-height: 15px;
+}
+.results a {
+  color: var(--account-link-color);
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 5px;
+  height: 20px;
+  align-items: center;
+}
+.results a:hover {
+  background-color: #f3f3f3;
+}
+/*              Auto Complete END             */
+/* ------------------------------------------ */
+
+/* Account CSS START */
+.account-list {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  font-size: 12px;
+}
+
+.account-list li a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--account-link-color);
+}
+
+.account-list li a:hover {
+  color: var(--primary-color);
+}
+
+.account-list li a:hover svg path {
+  fill: var(--account-link-hover-color);
+}
+.account-list li:first-child {
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+.account-list li:hover {
+  position: relative;
+}
+.account-list li:hover .user-menu {
+  display: block;
+  position: absolute;
+  z-index: 999;
+  top: 16px;
+  left: -60px;
+  top: 100%;
+}
+/* Account CSS END */
+/* ------------------------------------------ */
+/* User Account Dropdown START */
+.user-menu {
+  display: none;
+  width: 170px;
+  height: 289px;
+  padding: 15px 10px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.07);
+  font-size: 14px;
+  line-height: 18px;
+  z-index: var(--z-dropdown);
+}
+.user-menu li {
+  margin-bottom: 12px;
+}
+/* User Account Dropdown END */
+/* ------------------------------------------ */
+/* Navbar START*/
+.nav {
+  height: 34px;
+  width: 1080px;
+  margin: 0 auto;
+  position: relative;
+}
+
+main {
+  transition: .2s all;
+}
+
+.nav:hover > #black-out {
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav:hover ~ main {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0,0,0,0.1);
+  opacity: 0.5;
+}
+
+.nav-link {
+  cursor: pointer;
+  padding-left: 21px;
+  padding-right: 21px;
+  text-align: center;
+  white-space: nowrap;
+}
+.main-nav:first-child {
+  padding-left: 0;
+}
+.nav-link:hover {
+  border-bottom: 2px solid var(--primary-color);
+}
+.nav-link:hover .category {
+  color: var(--primary-color);
+}
+
+.nav-link:hover .nav-link-dropdown {
+  display: block;
+}
+
+.category {
+  letter-spacing: 0.18px;
+  color: var(--account-link-color);
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+}
+/*              Navbar END                    */
+/* ------------------------------------------ */
+
+/* Main Navigation Category DropDown START    */
+.nav-link-dropdown {
+  margin-top: 14px;
+  display: none;
+  position: absolute;
+  width: 1080px;
+  height: 340px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  top: 19px;
+  left: 0;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  z-index: var(--z-dropdown);
+  animation: slide-in-from-top .1s ease-out;
+}
+.nav-link-dropdown-categories {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.nav-link-dropdown-category {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: start;
+}
+.nav-link-dropdown-category ul {
+  padding-left: 20px;
+}
+.nav-link-dropdown-category ul li {
+  font-size: 13px;
+}
+.nav-link-dropdown-category ul li:not(:first-child) a {
+  color: #666;
+}
+.nav-link-dropdown-category ul li:hover a {
+  border-bottom: 0.3px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.category-title {
+  font-size: 16px;
+  color: var(--account-link-color);
+}
+.category-title:hover {
+  color: var(--primary-color);
+}
+
+.nav-link-dropdown-category-card {
+  height: 120px;
+  width: 300px;
+  background-color: gray;
+}
+.nav-link-dropdown-category-card a img {
+  height: 120px;
+  width: 300px;
+}
+/*     Main Navigation Category DropDown END         */
+/* ------------------------------------------------- */
+/* Brand Stories START                            */
+.stories {
+  display: flex;
+  justify-content: center;
+  gap: 26.11px;
+  height: 110px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 15.08px;
+  margin: 0 auto;
+  margin-top: 28px;
+}
+.story {
+  display: flex;
+  flex-direction: column;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background-color: gray;
+  transition: all .2s;
+}
+.story img, a {
+  transition: .3s all;
+}
+.story:hover img {
+  border: 1px solid #f28232;
+}
+.story:hover a {
+  color: #f28232;
+}
+.story a {
+  display: flex;
+  flex-direction: column;
+  color: var(--account-link-color);
+}
+.story a img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 1px solid #e6e6e6;
+}
+/*        Brand Stories END        */
+/* ------------------------------- */
+/* Main Cards START */
+
+.main-cards {
+  margin-top: 32px;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-cards {
+  display: flex;
+  flex-direction: column;
+}
+.left-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  height: 310px;
+  width: 750px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.left-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+.card-link {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  background-color: black;
+  align-items: center;
+  font-size: 14px;
+}
+.left-link {
+  display: flex;
+  height: 30px;
+  color: white;
+  padding-left: 20px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.left-card:hover .card-link {
+  background-color: var(--primary-color);
+}
+
+.left-card:hover {
+  border: 1px solid #ff671d;
+}
+.left-card:hover .right-link {
+  display: block;
+}
+.right-link {
+  display: none;
+}
+.right-link a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  padding-right: 10px;
+}
+
+.right-cards {
+  display: flex;
+  flex-direction: column;
+}
+.right-card {
+  margin-bottom: 15px;
+  height: 330px;
+  width: 310px;
+  background: gray;
+}
+/*             MAİN CARDS END                */
+/* ----------------------------------------- */
+
+/* Keyframes START    */
+
+@keyframes slide-in-from-top {
+  from {
+    height: 0px;
+    opacity: 0;
+  }
+
+  to {
+    height: 340px;
+    opacity: 1;
+  }
+}

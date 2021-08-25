@@ -1,0 +1,35 @@
+:root {
+  /* THEME HEXCODES */
+  --primary-dark-color: #a8e49b;
+  --primary-light-color: #ffffff;
+  --primary-cream-color: hsl(0, 0%, 0%);
+}
+
+* {
+  font-family: "Monserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  background: linear-gradient(
+    45deg,
+    var(--primary-light-color),
+    var(--primary-cream-color)
+  );
+  margin: 0;
+  font-family:"Monserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  text-align: center;
+  color:#6dec94;
+}

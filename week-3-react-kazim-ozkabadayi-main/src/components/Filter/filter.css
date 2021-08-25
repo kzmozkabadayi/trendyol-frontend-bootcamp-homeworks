@@ -1,0 +1,41 @@
+select {
+  background-color: #a8e49b;
+  padding-left: 15px;
+  font-size: inherit;
+  margin: 20px;
+  overflow: hidden;
+  padding: 5px 10px;
+  white-space: nowrap;
+  width: 240px;
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  outline:0; 
+}
+
+option {
+  background-color: #ffffff;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  border-bottom: 2px solid var(--primary-green-color);
+}
+
+.filter-section .filter-item label{
+  color:#6dec94;
+  font-size: 19px;
+}
+
+/*Filter Button*/
+.filterButton {
+  padding: 14px 45px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  margin-left: 30px;
+  background-color: #a8e49b;
+}
+
